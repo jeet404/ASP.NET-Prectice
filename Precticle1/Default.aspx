@@ -32,6 +32,16 @@
                 <asp:TextBox ID="txtAdd" runat="server" Rows="5" TextMode="MultiLine"></asp:TextBox>
             </div>
             <div class="form-control">
+                <asp:Label ID="Label1" runat="server">City :</asp:Label>
+                <asp:DropDownList ID="ddlCity" runat="server">
+                    <asp:ListItem Value="0" Text="--Select City--"></asp:ListItem>
+                    <asp:ListItem Value="Amreli" Text="Amreli"></asp:ListItem>
+                    <asp:ListItem Value="Rajkot" Text="Rajkot"></asp:ListItem>
+                    <asp:ListItem Value="Bhavnagar" Text="Bhavnagar"></asp:ListItem>
+                    <asp:ListItem Value="Bhuj" Text="Bhuj"></asp:ListItem>
+                </asp:DropDownList>
+            </div>
+            <div class="form-control">
                 <asp:Label ID="lblEmail" runat="server">Email :</asp:Label>
                 <asp:TextBox ID="txtEmail" runat="server" TextMode="Email"></asp:TextBox>
             </div>
