@@ -9,6 +9,7 @@ public partial class _Default : System.Web.UI.Page
 {
     string gen = "";
     string hb = "";
+    string city = "";
     int cnt = 0;
     CheckBox[] itm = new CheckBox[5];
     public void chk_gen()
@@ -65,6 +66,17 @@ public partial class _Default : System.Web.UI.Page
         }
         hb = hb.TrimEnd(',');
     }
+    public void chk_city()
+    {
+        if(ddlCity.SelectedValue != "0")
+        {
+            city = ddlCity.SelectedValue;
+        }
+        else
+        {
+            Response.Write("<script>alert('Select Valid City!')</script>");
+        }
+    }
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -72,9 +84,10 @@ public partial class _Default : System.Web.UI.Page
     }
     protected void btnDisp_Click(object sender, EventArgs e)
     {
+        chk_city();
         chk_gen();
         chk_hb();
-        Response.Write("<div style='position:absolute;bottom:0%;display:flex;justify-content:center;height:auto;margin-bottom:2%;'>");
+        Response.Write("<div style='position:fixed;bottom:0%;display:flex;justify-content:center;height:auto;margin-bottom:1%;'>");
         Response.Write("<table border='2' style='font-size:1.4em;'>");
         Response.Write("<tr>");
         Response.Write("<th>First Name</th>");
@@ -82,6 +95,7 @@ public partial class _Default : System.Web.UI.Page
         Response.Write("<th>Age</th>");
         Response.Write("<th>DOB</th>");
         Response.Write("<th>Address</th>");
+        Response.Write("<th>City</th>");
         Response.Write("<th>Email</th>");
         Response.Write("<th>Gender</th>");
         Response.Write("<th>Hobbies</th>");
@@ -92,6 +106,7 @@ public partial class _Default : System.Web.UI.Page
         Response.Write("<td>" + txtAge.Text + "</td>");
         Response.Write("<td>" + txtDob.Text + "</td>");
         Response.Write("<td>" + txtAdd.Text + "</td>");
+        Response.Write("<td>" + city + "</td>");
         Response.Write("<td>" + txtEmail.Text + "</td>");
         Response.Write("<td>" + gen + "</td>");
         Response.Write("<td>" + hb + "</td>");
