@@ -15,8 +15,8 @@ h1{
     background-color:cyan;
     width:380px;
     height:auto;
-    margin-top:20px;
-    padding:20px;
+    margin-top:10px;
+    padding:14px;
     font-family:cursive;
     overflow:hidden;
     border-radius:16px;
@@ -30,17 +30,17 @@ h1{
     font-size:1.2em;
 }
 
-.form-control input[type=text],input[type=email]{
+.form-control input[type=text],input[type=email],select{
     border:0px;
     border-radius:8px;
-    font-size:1.2em;
+    font-size:1.1em;
     height:26px;
     box-shadow:4px 2px 4px 4px black;
 }
 
 .form-control textarea{
     border:0px;
-    font-size:1.2em;
+    font-size:1.1em;
     border-radius:8px;
     resize:none;
     box-shadow:4px 2px 4px 4px black;
@@ -54,8 +54,8 @@ h1{
 .btn-primary{
     align-self:center;
     background-color:#007bff;
-    padding:10px;
-    font-size:1.2em;
+    padding:6px;
+    font-size:1.1em;
     font-weight:600;
     border:0px;
     border-radius:12px;
