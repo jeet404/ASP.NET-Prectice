@@ -23,38 +23,38 @@
             <div class="mb-2">
                 <asp:Label ID="lblSize" runat="server" Text="Choose Pizza Size :" CssClass="form-label col-md-6 fs-3"></asp:Label>
                 <div class="form-control fs-5 d-flex justify-content-evenly">
-                    <asp:CheckBox ID="SS" runat="server" Text="Small" />
-                    <asp:CheckBox ID="MS" runat="server" Text="Medium" />
-                    <asp:CheckBox ID="LS" runat="server" Text="Large" />
+                    <asp:CheckBox ID="SS" runat="server" Text="Small" AutoPostBack="true" OnCheckedChanged="SS_CheckedChanged" />
+                    <asp:CheckBox ID="MS" runat="server" Text="Medium" AutoPostBack="true" OnCheckedChanged="MS_CheckedChanged" />
+                    <asp:CheckBox ID="LS" runat="server" Text="Large" AutoPostBack="true" OnCheckedChanged="LS_CheckedChanged" />
                 </div>
             </div>
             <div class="mb-2">
                 <asp:Label ID="lblItm" runat="server" Text="Choose Pizza Item :" CssClass="form-label col-md-6 fs-3"></asp:Label><br />
                 <div class="form-control col-md-12 d-flex flex-row align-items-center justify-content-between">
-                    <asp:CheckBox ID="chkMgrt" runat="server" CssClass="fs-5" Text="Margarita" />
-                    <asp:TextBox ID="txtnumOfMgrt" runat="server" CssClass="fs-5 form-text" TextMode="Number"></asp:TextBox>
-                    <asp:Label ID="lblpriceM" runat="server" CssClass="fs-5">0<span class="fs-5">Rs.</span></asp:Label>
+                    <asp:CheckBox ID="item_1" runat="server" CssClass="fs-5" Text="Margarita" AutoPostBack="true" OnCheckedChanged="item_1_CheckedChanged" />
+                    <asp:TextBox ID="qty_1" runat="server" CssClass="fs-5 form-text" TextMode="Number" AutoPostBack="true" OnTextChanged="qty_1_TextChanged"></asp:TextBox>
+                    <asp:Label ID="p1" runat="server" CssClass="fs-5">0<span class="fs-5">Rs.</span></asp:Label>
                 </div>
                 <div class="form-control col-md-12 d-flex flex-row align-items-center justify-content-between">
-                    <asp:CheckBox ID="chkHas" runat="server" CssClass="fs-5" Text="Hot & Spicy" />
-                    <asp:TextBox ID="txtnumOfHas" runat="server" CssClass="fs-5 form-text" TextMode="Number"></asp:TextBox>
-                    <asp:Label ID="lblpriceH" runat="server" CssClass="fs-5">0<span class="fs-5">Rs.</span></asp:Label>
+                    <asp:CheckBox ID="item_2" runat="server" CssClass="fs-5" Text="Hot & Spicy" AutoPostBack="true" OnCheckedChanged="item_2_CheckedChanged" />
+                    <asp:TextBox ID="qty_2" runat="server" CssClass="fs-5 form-text" TextMode="Number" AutoPostBack="true" OnTextChanged="qty_2_TextChanged"></asp:TextBox>
+                    <asp:Label ID="p2" runat="server" CssClass="fs-5">0<span class="fs-5">Rs.</span></asp:Label>
                 </div>
                 <div class="form-control col-md-12 d-flex flex-row align-items-center justify-content-between">
-                    <asp:CheckBox ID="chkPsp" runat="server" CssClass="fs-5" Text="Pelas Pasto" />
-                    <asp:TextBox ID="txtnumOfpsp" runat="server" CssClass="fs-5 form-text" TextMode="Number"></asp:TextBox>
-                    <asp:Label ID="lblpriceP" runat="server" CssClass="fs-5">0<span class="fs-5">Rs.</span></asp:Label>
+                    <asp:CheckBox ID="item_3" runat="server" CssClass="fs-5" Text="Pelas Pasto" AutoPostBack="true" OnCheckedChanged="item_3_CheckedChanged" />
+                    <asp:TextBox ID="qty_3" runat="server" CssClass="fs-5 form-text" TextMode="Number" AutoPostBack="true" OnTextChanged="qty_3_TextChanged"></asp:TextBox>
+                    <asp:Label ID="p3" runat="server" CssClass="fs-5">0<span class="fs-5">Rs.</span></asp:Label>
                 </div>
                 <div class="form-control col-md-12 d-flex flex-row align-items-center justify-content-between">
-                    <asp:CheckBox ID="chkSc" runat="server" CssClass="fs-5" Text="Seven Cheese" />
-                    <asp:TextBox ID="txtnumOfSc" runat="server" CssClass="fs-5 form-text" TextMode="Number"></asp:TextBox>
-                    <asp:Label ID="lblpriceS" runat="server" CssClass="fs-5">0<span class="fs-5">Rs.</span></asp:Label>
+                    <asp:CheckBox ID="item_4" runat="server" CssClass="fs-5" Text="Seven Cheese" AutoPostBack="true" OnCheckedChanged="item_4_CheckedChanged" />
+                    <asp:TextBox ID="qty_4" runat="server" CssClass="fs-5 form-text" TextMode="Number" AutoPostBack="true" OnTextChanged="qty_4_TextChanged"></asp:TextBox>
+                    <asp:Label ID="p4" runat="server" CssClass="fs-5">0<span class="fs-5">Rs.</span></asp:Label>
                 </div>
             </div>
             <div class="mb-2">
                 <asp:Label ID="lblpar" runat="server" Text="Check If You Want Parcel :" CssClass="form-label col-md-6 fs-3"></asp:Label><br />
                 <div class="form-control col-md-12 d-flex flex-row align-items-center justify-content-between">
-                    <asp:CheckBox ID="chkParcel" runat="server" Text="With Parcel" CssClass="fs-5" />
+                    <asp:CheckBox ID="chkParcel" runat="server" Text="With Parcel" CssClass="fs-5" AutoPostBack="true" OnCheckedChanged="chkParcel_CheckedChanged" />
                     <asp:Label ID="lblParcel" runat="server" CssClass="fs-5">40<span class="fs-5">Rs.</span></asp:Label>
                 </div>
             </div>
@@ -75,6 +75,8 @@
                     <asp:Label ID="lblFTotal" runat="server" Text="Total Amount :"></asp:Label>
                     <asp:Label ID="amtFTOT" runat="server">0</asp:Label> 
                 </div>
+                <hr />
+                <asp:Button ID="btnCal" runat="server" Text="Calculate" CssClass="btn btn-primary fs-5" OnClick="btnCal_Click" />
             </div>
         </form>
     </div>
