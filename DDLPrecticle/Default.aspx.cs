@@ -12,9 +12,9 @@ public partial class _Default : System.Web.UI.Page
     {
 
     }
-    protected void btnAddcity_Click(object sender, EventArgs e)
+    protected void btnAddcity_Click(object sender, EventArgs e)  
     {
-        if(txtCity.Text != "" && ddlCity.Items.Contains(txtCity.Text))
+        if(txtCity.Text != "")
         {
             ddlCity.Items.Add(txtCity.Text);
         }
