@@ -5,14 +5,14 @@
     <html xmlns="http://www.w3.org/1999/xhtml">
 
     <head runat="server">
-        <title>Login Page</title>
+        <title>DropDownList Demo</title>
         <link href="style.css" rel="stylesheet" type="text/css" />
     </head>
 
     <body>
         <form id="form1" runat="server">
             <div class="form-body">
-                <h1>Login</h1>
+                <h1>DropDownList Demo</h1>
                 <div class="form-control">
                     <asp:Label ID="lblUsrnm" runat="server">Add City :</asp:Label>
                     <asp:TextBox ID="txtCity" runat="server"></asp:TextBox>

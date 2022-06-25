@@ -16,11 +16,16 @@ public partial class _Default : System.Web.UI.Page
     {
         if(txtCity.Text != "")
         {
-            ddlCity.Items.Add(txtCity.Text);
+            if(ddlCity.Items.Contains(new ListItem(txtCity.Text)))
+            {
+                ddlCity.Items.Add(txtCity.Text);
+            }
         }
         else
         {
             Response.Write("<script>alert('Enter Value in TextBox');</script>");
+            txtCity.Text = "";
+            txtCity.Focus();
         }
     }
     protected void btnGetCity_Click(object sender, EventArgs e)
