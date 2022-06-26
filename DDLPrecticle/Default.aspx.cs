@@ -14,11 +14,12 @@ public partial class _Default : System.Web.UI.Page
     }
     protected void btnAddcity_Click(object sender, EventArgs e)  
     {
+        ListItem lst = new ListItem(txtCity.Text);
         if(txtCity.Text != "")
         {
-            if(ddlCity.Items.Contains(new ListItem(txtCity.Text)))
+            if(!ddlCity.Items.Contains(lst))
             {
-                ddlCity.Items.Add(txtCity.Text);
+                ddlCity.Items.Add(lst);
             }
         }
         else
