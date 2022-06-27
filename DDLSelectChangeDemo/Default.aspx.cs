@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 
 public partial class _Default : System.Web.UI.Page
 {
+    string loc = "";
+
     //Arrays for All
     string[] country = new string[] { "India", "USA", "Nepal", "Russia", "Australia" };
     string[] state = new string[] { "Gujrat", "Punjab", "California", "Colorado", "Bagmati", "Lumbini", "Buryatia", "Dagestan", "South Wales", "Victoria" };
@@ -45,6 +47,13 @@ public partial class _Default : System.Web.UI.Page
             ddlCt.Items.Add(itm);
         }
     }
+
+    public void ref_disp(DropDownList name)
+    {
+        name.Items.Clear();
+        name.Items.Add("--Select City--");
+    }
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if(!IsPostBack)
@@ -124,5 +133,12 @@ public partial class _Default : System.Web.UI.Page
                 }
             }
         }
+    }
+    protected void btnShow_Click(object sender, EventArgs e)
+    {
+        loc = ddlCo.SelectedValue.ToString() +" - "+ ddlSt.SelectedValue.ToString() +" - "+ ddlCt.SelectedValue.ToString();
+        Response.Write("<div style='position:fixed;bottom:20%;display:flex;justify-content:center;height:auto;'>");
+        Response.Write("<h3>You Selected : " + loc + "</h3>");
+        Response.Write("</div>");
     }
 }

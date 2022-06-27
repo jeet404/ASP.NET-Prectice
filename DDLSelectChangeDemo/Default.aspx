@@ -26,6 +26,9 @@
                     <asp:ListItem Value="0" Text="--Select City--"></asp:ListItem>
                 </asp:DropDownList>
             </div>
+            <div class="form-control">
+                <asp:Button ID="btnShow" runat="server" Text="Show" OnClick="btnShow_Click" CssClass="btn-primary" />
+            </div>
         </div>
     </form>
 </body>
