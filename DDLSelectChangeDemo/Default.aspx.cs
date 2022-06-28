@@ -12,7 +12,7 @@ public partial class _Default : System.Web.UI.Page
     //Arrays for All
     string[] country = new string[] { "India", "USA", "Nepal", "Russia", "Australia" };
     string[] state = new string[] { "Gujrat", "Punjab", "California", "Colorado", "Bagmati", "Lumbini", "Buryatia", "Dagestan", "South Wales", "Victoria" };
-    string[] city = new string[] { "Ahemdabad", "Rajkot", "Amreli", "Ludhiana", "	Amritsar", "Jalandhar", "Los Angeles", "San Diego" };
+    string[] city = new string[] { "Ahemdabad", "Rajkot", "Amreli", "Ludhiana", "Amritsar", "Jalandhar", "Los Angeles", "San Diego" };
 
     //Arrays for State 
     string[] stOfInd = new string[] { "Gujrat", "Punjab" };
