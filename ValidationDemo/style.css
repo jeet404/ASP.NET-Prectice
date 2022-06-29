@@ -58,3 +58,9 @@ input[type="password"] {
   color: white;
   transition: 0.3s;
 }
+
+.range-cont{
+    background-color:white;
+    border-radius:10px;
+    padding:16px;
+}

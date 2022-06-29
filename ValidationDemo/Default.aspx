@@ -39,7 +39,18 @@
                     <asp:Label ID="Label3" runat="server">ZIP-CODE :</asp:Label>
                     <asp:TextBox ID="txtZIP" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvZip" runat="server" ControlToValidate="txtZIP" ErrorMessage="Not Filled!"></asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="revZip" runat="server" ControlToValidate="txtZIP" ValidationExpression="^[A-Z0-9]{12}$" ErrorMessage="EX = "></asp:RegularExpressionValidator>
+                    <asp:RegularExpressionValidator ID="revZip" runat="server" ControlToValidate="txtZIP" ValidationExpression="^[A-Z0-9]{6.8}$" ErrorMessage="EX = "></asp:RegularExpressionValidator>
+                </div>
+                <div class="form-control range-cont">
+                    <asp:Label ID="Label4" runat="server">Total Marks :</asp:Label>
+                    <asp:TextBox ID="txtTotalM" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="rfvTotalM" runat="server" ControlToValidate="txtTotalM" ErrorMessage="Not Filled!"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="revTotalM" runat="server" ControlToValidate="txtTotalM" ValidationExpression="^[0-9]{3}$" ErrorMessage="Enter Proper Total Marks!"></asp:RegularExpressionValidator>
+                    <br />
+                    <asp:Label ID="Label5" runat="server">Obtain Marks :</asp:Label>
+                    <asp:TextBox ID="txtObtM" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="rfvObtM" runat="server" ControlToValidate="txtTotalM" ErrorMessage="Not Filled!"></asp:RequiredFieldValidator>
+                    <asp:CompareValidator ID="compM" runat="server" ControlToValidate="txtObtM" ControlToCompare="txtTotalM" Operator="LessThan" Type="Integer" ErrorMessage="Value Must be Lower Than you Entered in Total Marks!"></asp:CompareValidator>
                 </div>
                 <div class="form-control">
                     <asp:Button ID="btnLogin" runat="server" Text="Login" CssClass="btn-primary" />
