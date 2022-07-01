@@ -1,0 +1,29 @@
+﻿body{
+    background-color:skyblue;
+    display:flex;
+    justify-content:center;
+}
+
+h1 {
+    text-align: center;
+    font-family: cursive;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    background-color: cyan;
+    width: 380px;
+    height: auto;
+    margin-top: 20px;
+    padding: 20px;
+    font-family: cursive;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0px 0px 20px 6px black;
+}
+
+form input{
+    font-size:1.2em; 
+}
