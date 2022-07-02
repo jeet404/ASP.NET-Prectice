@@ -19,8 +19,8 @@
         <div>
             <asp:Label ID="lblImgName" runat="server"></asp:Label>
         </div>
-        <div>
-            <asp:Image ID="imgCont" runat="server" />
+        <div class="contOfImg">
+            <asp:Image ID="imgSec" runat="server" />
         </div>
     </form>
 </body>

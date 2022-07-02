@@ -1,7 +1,8 @@
 ﻿body{
     background-color:skyblue;
     display:flex;
-    justify-content:center;
+    align-items:center;
+    flex-direction:column;
 }
 
 h1 {
@@ -26,4 +27,14 @@ form {
 
 form input{
     font-size:1.2em; 
+}
+
+.contOfImg{
+    margin-top:1%;
+    border-radius:16px;
+}
+
+.contOfImg img {
+    width:200px;
+    height:200px;
 }

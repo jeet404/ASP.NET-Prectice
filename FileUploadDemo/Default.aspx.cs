@@ -23,6 +23,9 @@ public partial class _Default : System.Web.UI.Page
             string imgSize = fuImg.PostedFile.ContentLength.ToString();
             string imgName = fuImg.FileName.ToString();
             lblImgName.Text = imgCont + "<br>" + imgName + "<br>" + imgSize;
+            string filePath = Server.MapPath("~/uploads/" + imgName);
+            fuImg.SaveAs(filePath);
+            imgSec.ImageUrl = "~/uploads/" + imgName;
         }
     }
 }
