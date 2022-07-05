@@ -20,12 +20,28 @@ public partial class _Default : System.Web.UI.Page
         else
         {
             string imgCont = fuImg.PostedFile.ContentType.ToString();
-            string imgSize = fuImg.PostedFile.ContentLength.ToString();
+            int imgSize = fuImg.PostedFile.ContentLength;
             string imgName = fuImg.FileName.ToString();
-            lblImgName.Text = imgCont + "<br>" + imgName + "<br>" + imgSize;
-            string filePath = Server.MapPath("~/uploads/" + imgName);
-            fuImg.SaveAs(filePath);
-            imgSec.ImageUrl = "~/uploads/" + imgName;
+            Response.Write(lblImgName.Text = imgCont + "<br>" + imgName + "<br>" + imgSize.ToString());
+            if (imgCont == "image/jpeg")
+            {
+                if (imgSize <= 500000)
+                {
+
+                    lblImgName.Text = imgCont + "<br>" + imgName + "<br>" + imgSize.ToString();
+                    string filePath = Server.MapPath("~/uploads/" + imgName);
+                    fuImg.SaveAs(filePath);
+                    imgSec.ImageUrl = "~/uploads/" + imgName;
+                }
+                else
+                {
+                    lblImgName.Text = "Minimum Size should be 500KB";
+                }
+            }
+            else
+            {
+                lblImgName.Text = "Only JPEG Allowed!";
+            }
         }
     }
 }
