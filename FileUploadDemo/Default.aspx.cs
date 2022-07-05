@@ -22,12 +22,10 @@ public partial class _Default : System.Web.UI.Page
             string imgCont = fuImg.PostedFile.ContentType.ToString();
             int imgSize = fuImg.PostedFile.ContentLength;
             string imgName = fuImg.FileName.ToString();
-            Response.Write(lblImgName.Text = imgCont + "<br>" + imgName + "<br>" + imgSize.ToString());
             if (imgCont == "image/jpeg")
             {
                 if (imgSize <= 500000)
                 {
-
                     lblImgName.Text = imgCont + "<br>" + imgName + "<br>" + imgSize.ToString();
                     string filePath = Server.MapPath("~/uploads/" + imgName);
                     fuImg.SaveAs(filePath);
