@@ -23,6 +23,7 @@
                 </div>
                 <div>
                     <asp:Label ID="lblConStat" runat="server" Text=""></asp:Label>
+                    <a style="float:right;" href="index.aspx">Home</a>
                 </div>
             </div>
     </form>

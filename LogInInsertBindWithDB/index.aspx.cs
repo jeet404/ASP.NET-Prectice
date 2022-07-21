@@ -16,7 +16,7 @@ public partial class index : System.Web.UI.Page
     {
         try
         {
-            conn = new SqlConnection(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=D:\WorkSpace\aspPrecticle\LogInWithDB\App_Data\web_db.mdf;Integrated Security=True");
+            conn = new SqlConnection(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=D:\WorkSpace\aspPrecticle\LogInInsertBindWithDB\App_Data\web_db.mdf;Integrated Security=True");
             conn.Open();
             if (conn.State == ConnectionState.Open)
             {

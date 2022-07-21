@@ -13,7 +13,7 @@ public partial class dispData : System.Web.UI.Page
     SqlConnection conn;
     SqlDataAdapter da;
     DataTable dt;
-    string strCon = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=D:\WorkSpace\aspPrecticle\LogInWithDB\App_Data\web_db.mdf;Integrated Security=True";
+    string strCon = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=D:\WorkSpace\aspPrecticle\LogInInsertBindWithDB\App_Data\web_db.mdf;Integrated Security=True";
     protected void Page_Load(object sender, EventArgs e)
     {
         try

@@ -22,6 +22,9 @@
                 <div class="form-control">
                     <asp:Button ID="btnLogin" runat="server" Text="Add" CssClass="btn-primary" OnClick="btnLogin_Click" />
                 </div>
+                <div class="form-control">
+                    <a href="dispData.aspx"  class="btn-primary">Show Data</a>
+                </div>
                 <div>
                     <asp:Label ID="lblConStat" runat="server" Text=""></asp:Label>
                 </div>
