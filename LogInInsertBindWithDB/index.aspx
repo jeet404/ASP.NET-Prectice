@@ -10,20 +10,22 @@
 <body>
     <form id="form1" runat="server">
     <div class="form-body">
-                <h1>Add Category</h1>
+                <h1>Category</h1>
+                <div class="form-control">
+                    <!--<asp:Label ID="lblPass" runat="server">Description :</asp:Label>
+                    <asp:TextBox ID="txtCdesc" runat="server" Rows="5" TextMode="MultiLine"></asp:TextBox>-->
+                    <asp:Label ID="Label1" runat="server">Category :</asp:Label>
+                    <asp:DropDownList ID="ddlCate" runat="server" AutoPostBack="true" AppendDataBoundItems="true" OnSelectedIndexChanged="ddlCate_SelectedIndexChanged">
+                        <asp:ListItem Value="0" Text="--Select Category--" Selected="True"></asp:ListItem>
+                        <asp:ListItem Value="other" Text="Other"></asp:ListItem>
+                    </asp:DropDownList>
+                </div>
                 <div class="form-control">
                     <asp:Label ID="lblUsrnm" runat="server">Category Name :</asp:Label>
                     <asp:TextBox ID="txtCname" runat="server"></asp:TextBox>
                 </div>
                 <div class="form-control">
-                    <asp:Label ID="lblPass" runat="server">Description :</asp:Label>
-                    <asp:TextBox ID="txtCdesc" runat="server" Rows="5" TextMode="MultiLine"></asp:TextBox>
-                </div>
-                <div class="form-control">
-                    <asp:Button ID="btnLogin" runat="server" Text="Add" CssClass="btn-primary" OnClick="btnLogin_Click" />
-                </div>
-                <div class="form-control">
-                    <a href="dispData.aspx"  class="btn-primary">Show Data</a>
+                    <asp:Button ID="btnAdd" runat="server" Text="Add" OnClick="btnAdd_Click" CssClass="btn-primary" />
                 </div>
                 <div>
                     <asp:Label ID="lblConStat" runat="server" Text=""></asp:Label>

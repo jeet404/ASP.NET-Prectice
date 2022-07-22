@@ -12,6 +12,8 @@ public partial class index : System.Web.UI.Page
 {
     SqlConnection conn;
     SqlCommand cmd;
+    SqlDataAdapter da;
+    DataTable dt;
     protected void Page_Load(object sender, EventArgs e)
     {
         try
@@ -23,6 +25,18 @@ public partial class index : System.Web.UI.Page
                 lblConStat.Text = "Conected";
                 lblConStat.ForeColor = Color.Green;
             }
+            if (!IsPostBack)
+            {
+                da = new SqlDataAdapter("SELECT * FROM task_info", conn);
+                dt = new DataTable();
+                da.Fill(dt);
+                ddlCate.DataSource = dt;
+                ddlCate.DataTextField = "c_name";
+                ddlCate.DataValueField = "Id";
+                ddlCate.DataBind();
+            }
+                txtCname.Enabled = false;
+                btnAdd.Enabled = false;
         }
         catch
         {
@@ -36,5 +50,29 @@ public partial class index : System.Web.UI.Page
         cmd = new SqlCommand(sql, conn);
         cmd.ExecuteNonQuery();
         Response.Write("<script>alert('Category Added Successfully')</script>");
+    }
+    protected void btnAdd_Click(object sender, EventArgs e)
+    {
+        cmd = new SqlCommand("INSERT INTO task_info VALUES(@cname)",conn);
+        cmd.Parameters.AddWithValue("@cname", txtCname.Text);
+        int i = cmd.ExecuteNonQuery();
+        if (i>0)
+        {
+            txtCname.Text = "";
+            Response.Redirect("index.aspx");
+        }
+    }
+    protected void ddlCate_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        if (ddlCate.SelectedValue == "other")
+        {
+            txtCname.Enabled = true;
+            btnAdd.Enabled = true;
+        }
+        else
+        {
+            txtCname.Enabled = false;
+            btnAdd.Enabled = false;
+        }
     }
 }
