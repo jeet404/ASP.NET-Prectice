@@ -11,12 +11,18 @@ public partial class Signup : System.Web.UI.Page
 {
     SqlConnection conn;
     SqlCommand cmd;
+    SqlDataAdapter da;
+    DataSet ds;
     protected void Page_Load(object sender, EventArgs e)
     {
         try
         {
-            conn = new SqlConnection(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=D:\WorkSpace\aspPrecticle\SignupLoginDemo\App_Data\user_data.mdf;Integrated Security=True");
+            conn = new SqlConnection(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=E:\WorkSpace\aspPrecticle\SignupLoginDemo\App_Data\user_data.mdf;Integrated Security=True");
             conn.Open();
+            if (!IsPostBack)
+            {
+                getData();
+            }
         }
         catch
         {
@@ -36,7 +42,21 @@ public partial class Signup : System.Web.UI.Page
         int res = cmd.ExecuteNonQuery();
         if (res > 0)
         {
-            Response.Redirect("Login.aspx");
+            getData();
         }
+    }
+    protected void btnLogin_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Login.aspx");
+    }
+
+    public void getData()
+    {
+        string strData = "SELECT * FROM user_info";
+        da = new SqlDataAdapter(strData, conn);
+        ds = new DataSet();
+        da.Fill(ds);
+        gvData.DataSource = ds;
+        gvData.DataBind();
     }
 }
