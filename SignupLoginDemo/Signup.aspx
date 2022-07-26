@@ -84,7 +84,18 @@
             </div>
         </div>
         <div class="data-cont">
-        <asp:GridView ID="gvData" runat="server" PageSize="5" AllowSorting="True" CellPadding="4" ForeColor="#333333" GridLines="None">
+        <asp:GridView ID="gvDatas" AllowPaging="true" runat="server" PageSize="5" AllowSorting="True" CellPadding="4" AutoGenerateColumns="false" ForeColor="#333333" GridLines="None" OnPageIndexChanging="gvData_PageIndexChanging" OnRowCancelingEdit="gvDatas_RowCancelingEdit" OnRowDeleting="gvDatas_RowDeleting" DataKeyNames="Id" OnRowEditing="gvDatas_RowEditing" OnRowUpdating="gvDatas_RowUpdating">
+            <Columns>
+                <asp:BoundField HeaderText="No." DataField="Id" />
+                <asp:BoundField HeaderText="First Name" DataField="u_fname" />
+                <asp:BoundField HeaderText="Last Name" DataField="u_lname" />
+                <asp:BoundField HeaderText="Username" DataField="u_username" />
+                <asp:BoundField HeaderText="Password" DataField="u_password" />
+                <asp:BoundField HeaderText="Mobile No." DataField="u_mobile" />
+                <asp:BoundField HeaderText="Date of Birth" DataField="u_dob" />
+                <asp:CommandField HeaderText="Delete" ShowDeleteButton="true" />
+                <asp:CommandField HeaderText="Edit" ShowEditButton="true" />
+            </Columns>
             <AlternatingRowStyle BackColor="White" />
             <EditRowStyle BackColor="#2461BF" />
             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />

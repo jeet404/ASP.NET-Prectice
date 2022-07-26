@@ -56,7 +56,57 @@ public partial class Signup : System.Web.UI.Page
         da = new SqlDataAdapter(strData, conn);
         ds = new DataSet();
         da.Fill(ds);
-        gvData.DataSource = ds;
-        gvData.DataBind();
+        gvDatas.DataSource = ds;
+        gvDatas.DataBind();
+    }
+    protected void gvData_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        gvDatas.PageIndex = e.NewPageIndex;
+        this.getData();
+    }
+    protected void gvDatas_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+        int refId = Convert.ToInt32(gvDatas.DataKeys[e.RowIndex].Values[0]);
+        string strDel = "DELETE FROM user_info WHERE Id = " + refId + "";
+        cmd = new SqlCommand(strDel, conn);
+        int res = cmd.ExecuteNonQuery();
+        if (res > 0)
+        {
+            getData();
+        }
+    }
+    protected void gvDatas_RowEditing(object sender, GridViewEditEventArgs e)
+    {
+        gvDatas.EditIndex = e.NewEditIndex;
+        this.getData();
+    }
+    protected void gvDatas_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+    {
+        gvDatas.EditIndex = -1;
+        this.getData();
+    }
+    protected void gvDatas_RowUpdating(object sender, GridViewUpdateEventArgs e)
+    {
+        int refId = Convert.ToInt32(gvDatas.DataKeys[e.RowIndex].Values[0]);
+        TextBox fname = gvDatas.Rows[e.RowIndex].FindControl("txt_fname") as TextBox;
+        TextBox lname = gvDatas.Rows[e.RowIndex].FindControl("txt_lname") as TextBox;
+        TextBox username = gvDatas.Rows[e.RowIndex].FindControl("txt_uname") as TextBox;
+        TextBox password = gvDatas.Rows[e.RowIndex].FindControl("txt_pass") as TextBox;
+        TextBox mobile = gvDatas.Rows[e.RowIndex].FindControl("txt_mno") as TextBox;
+        TextBox dob = gvDatas.Rows[e.RowIndex].FindControl("txt_dob") as TextBox;
+        string strEdit = "UPDATE user_info SET u_fname=@fname,u_lname=@lname,u_username=@uname,u_password=@pass,u_mobile=@mobile,u_dob=@dob WHERE Id=@uid";
+        cmd = new SqlCommand(strEdit, conn);
+        cmd.Parameters.AddWithValue("@fname", fname.Text);
+        cmd.Parameters.AddWithValue("@lname", lname.Text);
+        cmd.Parameters.AddWithValue("@uname", username.Text);
+        cmd.Parameters.AddWithValue("@pass", password.Text);
+        cmd.Parameters.AddWithValue("@mobile", mobile.Text);
+        cmd.Parameters.AddWithValue("@dob", dob.Text);
+        cmd.Parameters.AddWithValue("@uid", refId);
+        int res = cmd.ExecuteNonQuery();
+        if (res > 0)
+        {
+            getData();
+        }
     }
 }
