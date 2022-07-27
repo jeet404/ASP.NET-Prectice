@@ -27,8 +27,10 @@ public partial class index : System.Web.UI.Page
             }
             if (!IsPostBack)
             {
-                da = new SqlDataAdapter("SELECT * FROM task_info", conn);
+                string str = "SELECT * FROM task_info";
+                da = new SqlDataAdapter(str, conn);
                 dt = new DataTable();
+                dt.Select(str,conn);
                 da.Fill(dt);
                 ddlCate.DataSource = dt;
                 ddlCate.DataTextField = "c_name";

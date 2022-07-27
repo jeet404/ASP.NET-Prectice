@@ -79,6 +79,7 @@ public partial class Signup : System.Web.UI.Page
     {
         gvDatas.EditIndex = e.NewEditIndex;
         this.getData();
+        (gvDatas.Rows[e.NewEditIndex].Cells[0].Controls[0] as TextBox).Enabled = false;
     }
     protected void gvDatas_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
     {
@@ -88,13 +89,14 @@ public partial class Signup : System.Web.UI.Page
     protected void gvDatas_RowUpdating(object sender, GridViewUpdateEventArgs e)
     {
         int refId = Convert.ToInt32(gvDatas.DataKeys[e.RowIndex].Values[0]);
-        TextBox fname = gvDatas.Rows[e.RowIndex].FindControl("txt_fname") as TextBox;
-        TextBox lname = gvDatas.Rows[e.RowIndex].FindControl("txt_lname") as TextBox;
-        TextBox username = gvDatas.Rows[e.RowIndex].FindControl("txt_uname") as TextBox;
-        TextBox password = gvDatas.Rows[e.RowIndex].FindControl("txt_pass") as TextBox;
-        TextBox mobile = gvDatas.Rows[e.RowIndex].FindControl("txt_mno") as TextBox;
-        TextBox dob = gvDatas.Rows[e.RowIndex].FindControl("txt_dob") as TextBox;
-        string strEdit = "UPDATE user_info SET u_fname=@fname,u_lname=@lname,u_username=@uname,u_password=@pass,u_mobile=@mobile,u_dob=@dob WHERE Id=@uid";
+        GridViewRow grd = (GridViewRow) gvDatas.Rows[e.RowIndex];
+        TextBox fname = (TextBox)grd.Cells[1].Controls[0];
+        TextBox lname = (TextBox)grd.Cells[2].Controls[0];
+        TextBox username = (TextBox)grd.Cells[3].Controls[0];
+        TextBox password = (TextBox)grd.Cells[4].Controls[0];
+        TextBox mobile = (TextBox)grd.Cells[5].Controls[0];
+        TextBox dob = (TextBox)grd.Cells[6].Controls[0];
+        string strEdit = "UPDATE user_info SET u_fname=@fname,u_lname=@lname,u_username=@uname,u_password=@pass,u_mobile=@mobile,u_dob=@dob WHERE Id="+refId+"";
         cmd = new SqlCommand(strEdit, conn);
         cmd.Parameters.AddWithValue("@fname", fname.Text);
         cmd.Parameters.AddWithValue("@lname", lname.Text);
@@ -102,11 +104,11 @@ public partial class Signup : System.Web.UI.Page
         cmd.Parameters.AddWithValue("@pass", password.Text);
         cmd.Parameters.AddWithValue("@mobile", mobile.Text);
         cmd.Parameters.AddWithValue("@dob", dob.Text);
-        cmd.Parameters.AddWithValue("@uid", refId);
         int res = cmd.ExecuteNonQuery();
         if (res > 0)
         {
             getData();
+            (gvDatas.Rows[e.RowIndex].Cells[0].Controls[0] as TextBox).Enabled = false;
         }
     }
 }
