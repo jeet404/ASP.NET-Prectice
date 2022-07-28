@@ -43,11 +43,6 @@
             padding:6px;
             border-radius:16px;
         }
-        .data-cont{
-            display:flex;
-            justify-content:center;
-            align-items:center;
-        }
     </style>
 </head>
 <body>
@@ -83,32 +78,6 @@
                 <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" CssClass="btn-primary" />
             </div>
         </div>
-        <div class="data-cont">
-        <asp:GridView ID="gvDatas" AllowPaging="true" runat="server" PageSize="5" AllowSorting="True" CellPadding="4" AutoGenerateColumns="false" ForeColor="#333333" GridLines="None" OnPageIndexChanging="gvData_PageIndexChanging" OnRowCancelingEdit="gvDatas_RowCancelingEdit" OnRowDeleting="gvDatas_RowDeleting" DataKeyNames="Id" OnRowEditing="gvDatas_RowEditing" OnRowUpdating="gvDatas_RowUpdating">
-            <Columns>
-                <asp:BoundField HeaderText="No." DataField="Id" />
-                <asp:BoundField HeaderText="First Name" DataField="u_fname" />
-                <asp:BoundField HeaderText="Last Name" DataField="u_lname" />
-                <asp:BoundField HeaderText="Username" DataField="u_username" />
-                <asp:BoundField HeaderText="Password" DataField="u_password" />
-                <asp:BoundField HeaderText="Mobile No." DataField="u_mobile" />
-                <asp:BoundField HeaderText="Date of Birth" DataField="u_dob" />
-                <asp:CommandField HeaderText="Delete" ShowDeleteButton="true" />
-                <asp:CommandField HeaderText="Edit" ShowEditButton="true" />
-            </Columns>
-            <AlternatingRowStyle BackColor="White" />
-            <EditRowStyle BackColor="#2461BF" />
-            <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-            <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-            <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-            <RowStyle BackColor="#EFF3FB" />
-            <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-            <SortedAscendingCellStyle BackColor="#F5F7FB" />
-            <SortedAscendingHeaderStyle BackColor="#6D95E1" />
-            <SortedDescendingCellStyle BackColor="#E9EBEF" />
-            <SortedDescendingHeaderStyle BackColor="#4870BE" />
-        </asp:GridView>
-    </div>
     </form>
 </body>
 </html>
