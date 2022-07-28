@@ -1,0 +1,89 @@
+﻿*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body {
+    background-color:gold;
+    width:100vw;
+}
+
+header{
+    background-color:lightcoral;
+    line-height:25px;
+    text-align:center;
+    font-size:1.4em;
+    font-family:cursive;
+    padding:16px;
+}
+
+.container{
+    display:flex;
+    justify-content:center;
+    width:100vw;
+    padding:20px;
+}
+
+form{
+    width:45vw;
+    height:auto;
+    background-color:lightblue;
+    margin-top:10px;
+    display:flex;
+    flex-direction:column;
+    padding:20px;
+    border-radius:16px;
+    box-shadow:0px 0px 20px 4px black;
+}
+
+.form-control input,select{
+    font-family:cursive;
+    font-size:1em;
+}
+
+.form-control{
+    display:flex;
+    flex-direction:column;
+    margin-bottom:2%;
+    font-size:1.2em;
+    font-family:cursive;
+}
+
+.pr-cont{
+    font-size:0.8em;
+    display:flex;
+    justify-content: space-around;
+    flex-direction:row;
+    align-items:center;
+}
+
+.pr-cont input{
+    width:30%;
+}
+
+.final{
+    padding:20px;
+    background-color:white;
+    align-self:center;
+}
+
+.form-control input[type=submit]{
+    background-color:limegreen;
+    width:30%;
+    padding:5px;
+    font-size:0.9em;
+    border:0px;
+    border-radius:16px;
+    transition:0.3s;
+}
+
+.form-control input[type=submit]:hover{
+    background-color:lightcyan;
+    transition:0.3s;
+}
+
+.btn-cont{
+    width:100%;
+    align-items:center;
+}
