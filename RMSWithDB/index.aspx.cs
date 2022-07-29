@@ -30,6 +30,7 @@ public partial class index : System.Web.UI.Page
             if (!IsPostBack)
             {
                 getRooms();
+                bindGv();
             }
         }
         catch
@@ -96,16 +97,21 @@ public partial class index : System.Web.UI.Page
     }
     protected void btnCal_Click(object sender, EventArgs e)
     {
-        string strIn = "INSERT INTO bookings VALUES(@name,@roomtype,@totper,@totbill)";
+        string fName = fuDoc.FileName.ToString();
+        string path = ("~/uploads/"+fName);
+        fuDoc.SaveAs(path);
+        string strIn = "INSERT INTO bookings VALUES(@name,@roomtype,@totper,@totbill,@mobile,@doc)";
         cmd = new SqlCommand(strIn, conn);
         cmd.Parameters.AddWithValue("@name", txtFname.Text);
         cmd.Parameters.AddWithValue("@roomtype", ddlRooms.SelectedValue);
         cmd.Parameters.AddWithValue("@totper", txtPerson.Text);
         cmd.Parameters.AddWithValue("@totbill", lblTOT.Text);
+        cmd.Parameters.AddWithValue("@mobile", lblTOT.Text);
+        cmd.Parameters.AddWithValue("@doc", "~/uploads/"+fName);
         int res = cmd.ExecuteNonQuery();
         if (res > 0)
         {
-            lblres.Text = "Room Booked Successfully";
+            bindGv();
         }
         else
         {
@@ -119,5 +125,15 @@ public partial class index : System.Web.UI.Page
         lblPTOT.Text = totofper.ToString();
         lblRMT.Text = totbill.ToString();
         lblTOT.Text = nettot.ToString();
+    }
+
+    public void bindGv()
+    {
+        string strFetch = "SELECT * FROM bookings";
+        da = new SqlDataAdapter(strFetch, conn);
+        ds = new DataSet();
+        da.Fill(ds);
+        gvBooking.DataSource = ds;
+        gvBooking.DataBind();
     }
 }
