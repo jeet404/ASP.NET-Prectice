@@ -98,7 +98,7 @@ public partial class index : System.Web.UI.Page
     protected void btnCal_Click(object sender, EventArgs e)
     {
         string fName = fuDoc.FileName.ToString();
-        string path = ("~/uploads/"+fName);
+        string path = Server.MapPath("~/uploads/"+fName);
         fuDoc.SaveAs(path);
         string strIn = "INSERT INTO bookings VALUES(@name,@roomtype,@totper,@totbill,@mobile,@doc)";
         cmd = new SqlCommand(strIn, conn);
@@ -106,7 +106,7 @@ public partial class index : System.Web.UI.Page
         cmd.Parameters.AddWithValue("@roomtype", ddlRooms.SelectedValue);
         cmd.Parameters.AddWithValue("@totper", txtPerson.Text);
         cmd.Parameters.AddWithValue("@totbill", lblTOT.Text);
-        cmd.Parameters.AddWithValue("@mobile", lblTOT.Text);
+        cmd.Parameters.AddWithValue("@mobile", txtMno.Text);
         cmd.Parameters.AddWithValue("@doc", "~/uploads/"+fName);
         int res = cmd.ExecuteNonQuery();
         if (res > 0)
@@ -135,5 +135,60 @@ public partial class index : System.Web.UI.Page
         da.Fill(ds);
         gvBooking.DataSource = ds;
         gvBooking.DataBind();
+    }
+    protected void gvBooking_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+        int bid = Convert.ToInt32(gvBooking.DataKeys[e.RowIndex].Values[0]);
+        string strDel = "DELETE FROM bookings WHERE Id="+bid+"";
+        cmd = new SqlCommand(strDel, conn);
+        int res = cmd.ExecuteNonQuery();
+        if (res > 0)
+        {
+            bindGv();
+        }
+    }
+    protected void gvBooking_RowEditing(object sender, GridViewEditEventArgs e)
+    {
+        gvBooking.EditIndex = e.NewEditIndex;
+        this.bindGv();
+        GridViewRow gvr = (GridViewRow)gvBooking.Rows[e.NewEditIndex];
+        TextBox tid = (TextBox)gvr.Cells[0].Controls[0];
+        TextBox tDoc = (TextBox)gvr.Cells[6].Controls[0];
+        tDoc.ReadOnly = true;
+        tid.ReadOnly = true;
+    }
+    protected void gvBooking_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+    {
+        gvBooking.EditIndex = -1;
+        this.bindGv();
+    }
+    protected void gvBooking_RowUpdating(object sender, GridViewUpdateEventArgs e)
+    {
+        int bid = Convert.ToInt32(gvBooking.DataKeys[e.RowIndex].Values[0]);
+        string strEdit = "UPDATE bookings SET b_name=@name,b_roomtype=@room,b_totalpersone=@person,b_totalbill=@amt,b_mobile=@mno,b_doc=@doc WHERE Id="+bid+"";
+        GridViewRow gvr = (GridViewRow) gvBooking.Rows[e.RowIndex];
+        TextBox tid = (TextBox)gvr.Cells[0].Controls[0];
+        TextBox tName = (TextBox)gvr.Cells[1].Controls[0];
+        TextBox tMobile = (TextBox)gvr.Cells[2].Controls[0];
+        TextBox tRoom = (TextBox)gvr.Cells[3].Controls[0];
+        TextBox tPerson = (TextBox)gvr.Cells[4].Controls[0];
+        TextBox tAmt = (TextBox)gvr.Cells[5].Controls[0];
+        totbill = Convert.ToInt32(tPerson) * Convert.ToInt32(tAmt);
+        totbill = totbill + (totbill * tex / 100);
+        TextBox tDoc = (TextBox)gvr.Cells[6].Controls[0];
+        tDoc.ReadOnly = true;
+        cmd = new SqlCommand(strEdit, conn);
+        cmd.Parameters.AddWithValue("@name", tName.Text);
+        cmd.Parameters.AddWithValue("@room", tRoom.Text);
+        cmd.Parameters.AddWithValue("@person", tPerson.Text);
+        cmd.Parameters.AddWithValue("@amt", tAmt.Text);
+        cmd.Parameters.AddWithValue("@mno", tMobile.Text);
+        int res = cmd.ExecuteNonQuery();
+        if (res > 0)
+        {
+            bindGv();
+            tid.ReadOnly = true;
+            tDoc.ReadOnly = true;
+        }
     }
 }

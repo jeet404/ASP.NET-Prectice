@@ -11,7 +11,6 @@
     <header>
         <h1>Classic Gir Resorts</h1>
     </header>
-    <div class="container">
         <form id="form1" runat="server">
             <div class="form-body">
                 <div class="form-control" style="text-align:center;">
@@ -23,10 +22,6 @@
                     <asp:TextBox ID="txtFname" runat="server"></asp:TextBox>
                     <asp:Label ID="lblmno" runat="server" Text="Mobile No."></asp:Label>
                     <asp:TextBox ID="txtMno" runat="server"></asp:TextBox>
-                </div>
-                <div class="form-control">
-                    <asp:Label ID="lblDoc" runat="server" Text="Upload Any Id Proof :"></asp:Label>
-                    <asp:FileUpload ID="fuDoc" runat="server" />
                 </div>
                 <div class="form-control">
                     <asp:Label ID="Label1" runat="server" Text="Which Room do you want ?"></asp:Label>
@@ -52,6 +47,10 @@
                     <asp:Label ID="lblLine" runat="server" Text="----------------"></asp:Label>
                     <asp:Label ID="lblTOT" runat="server" Text="0"></asp:Label>
                 </div>
+                <div class="form-control">
+                    <asp:Label ID="lblDoc" runat="server" Text="Upload Any Id Proof :"></asp:Label>
+                    <asp:FileUpload ID="fuDoc" runat="server" />
+                </div>
                 <div class="form-control btn-cont">
                     <asp:Button ID="btnCal" runat="server" Text="Book Now" OnClick="btnCal_Click" />
                 </div>
@@ -60,7 +59,7 @@
                 </div>
             </div>
             <div class="data-cont">
-                <asp:GridView ID="gvBooking" AutoGenerateColumns="false" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
+                <asp:GridView ID="gvBooking" AutoGenerateColumns="False" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" Width="1284px" DataKeyNames="Id" AllowCustomPaging="true" PageSize="5" OnRowCancelingEdit="gvBooking_RowCancelingEdit" OnRowDeleting="gvBooking_RowDeleting" OnRowEditing="gvBooking_RowEditing" OnRowUpdating="gvBooking_RowUpdating">
                     <Columns>
                         <asp:BoundField HeaderText="Booking No." DataField="Id" />
                         <asp:BoundField HeaderText="Name" DataField="b_name" />
@@ -68,14 +67,18 @@
                         <asp:BoundField HeaderText="Room Type" DataField="b_roomtype" />
                         <asp:BoundField HeaderText="Persons" DataField="b_totalperson" />
                         <asp:BoundField HeaderText="Amount(With GST)" DataField="b_totalbill" />
-                        <asp:ImageField HeaderText="ID Proof" DataImageUrlField="b_doc" ControlStyle-Width="100px"></asp:ImageField>
+                        <asp:ImageField HeaderText="ID Proof" DataImageUrlField="b_doc" ControlStyle-Width="65px" ControlStyle-Height="65px">
+<ControlStyle Width="100px"></ControlStyle>
+                        </asp:ImageField>
+                        <asp:CommandField HeaderText="Edit" ShowEditButton="true" />
+                        <asp:CommandField HeaderText="Delete" ShowDeleteButton="true" />
                     </Columns>
                     <AlternatingRowStyle BackColor="White" />
                     <EditRowStyle BackColor="#7C6F57" />
                     <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
                     <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
                     <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
-                    <RowStyle BackColor="#E3EAEB" />
+                    <RowStyle BackColor="#E3EAEB" HorizontalAlign="Center" />
                     <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
                     <SortedAscendingCellStyle BackColor="#F8FAFA" />
                     <SortedAscendingHeaderStyle BackColor="#246B61" />
@@ -85,6 +88,5 @@
             </div>
 
         </form>
-    </div>
 </body>
 </html>
