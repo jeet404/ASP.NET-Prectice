@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 
 public partial class welcome : System.Web.UI.Page
 {
+    string strId = "";
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Session["username"] == null)
@@ -15,6 +16,7 @@ public partial class welcome : System.Web.UI.Page
         }
         else
         {
+            string strId = Session.SessionID.ToString();
             lblUname.Text = Session["username"].ToString();
         }
     }
@@ -25,5 +27,9 @@ public partial class welcome : System.Web.UI.Page
     protected void btnLogout_Click(object sender, EventArgs e)
     {
         Response.Redirect("logout.aspx");
+    }
+    protected void btnShow_Click(object sender, EventArgs e)
+    {
+        lblSid.Text = strId;
     }
 }
