@@ -173,7 +173,7 @@ public partial class index : System.Web.UI.Page
         TextBox tRoom = (TextBox)gvr.Cells[3].Controls[0];
         TextBox tPerson = (TextBox)gvr.Cells[4].Controls[0];
         TextBox tAmt = (TextBox)gvr.Cells[5].Controls[0];
-        totbill = Convert.ToInt32(tPerson) * Convert.ToInt32(tAmt);
+        totbill = Convert.ToInt32(tPerson.Text) * Convert.ToInt32(tAmt.Text);
         totbill = totbill + (totbill * tex / 100);
         TextBox tDoc = (TextBox)gvr.Cells[6].Controls[0];
         tDoc.ReadOnly = true;
