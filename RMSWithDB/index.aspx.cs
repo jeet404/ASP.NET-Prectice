@@ -181,7 +181,7 @@ public partial class index : System.Web.UI.Page
         cmd.Parameters.AddWithValue("@name", tName.Text);
         cmd.Parameters.AddWithValue("@room", tRoom.Text);
         cmd.Parameters.AddWithValue("@person", tPerson.Text);
-        cmd.Parameters.AddWithValue("@amt", tAmt.Text);
+        cmd.Parameters.AddWithValue("@amt", nettot);
         cmd.Parameters.AddWithValue("@mno", tMobile.Text);
         int res = cmd.ExecuteNonQuery();
         if (res > 0)
