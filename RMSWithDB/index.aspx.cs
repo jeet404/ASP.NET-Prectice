@@ -174,7 +174,7 @@ public partial class index : System.Web.UI.Page
         TextBox tPerson = (TextBox)gvr.Cells[4].Controls[0];
         TextBox tAmt = (TextBox)gvr.Cells[5].Controls[0];
         totbill = Convert.ToInt32(tPerson.Text) * Convert.ToInt32(tAmt.Text);
-        totbill = totbill + (totbill * tex / 100);
+        nettot = totbill + (totbill * tex / 100);
         TextBox tDoc = (TextBox)gvr.Cells[6].Controls[0];
         tDoc.ReadOnly = true;
         cmd = new SqlCommand(strEdit, conn);
