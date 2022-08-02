@@ -19,8 +19,8 @@
             <div>
                 <asp:Button ID="btnProtPage" runat="server" Text="Protected Page" OnClick="btnProtPage_Click" />
                 <br /><br />
-                <asp:Button ID="btnShow" runat="server" Text="Session Id" OnClick="btnShow_Click" />
-                <br /><br />
+                <!--<asp:Button ID="btnShow" runat="server" Text="Session Id" OnClick="btnShow_Click" />
+                <br /><br />-->
                 <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogout_Click" />
             </div>
         </form>
