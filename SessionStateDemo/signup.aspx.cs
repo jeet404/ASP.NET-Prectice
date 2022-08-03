@@ -56,6 +56,7 @@ public partial class signup : System.Web.UI.Page
         else
         {
             btnRegi.Enabled = true;
+            lblMsg.Text = "";
         }
     }
     protected void txtemail_TextChanged(object sender, EventArgs e)
