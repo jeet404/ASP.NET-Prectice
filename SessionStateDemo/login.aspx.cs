@@ -42,4 +42,8 @@ public partial class login : System.Web.UI.Page
             lblErr.Text = "Invalid Email or Password!!";
         }
     }
+    protected void btnRegi_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("signup.aspx");
+    }
 }
