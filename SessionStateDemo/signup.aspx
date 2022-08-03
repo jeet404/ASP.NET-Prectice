@@ -35,6 +35,8 @@
             </div>
             <div>
                 <asp:Button ID="btnRegi" runat="server" Text="Signup" OnClick="btnRegi_Click" />
+                <br /><br />
+                <asp:Button ID="btnLogin" runat="server" Text="Already User" OnClick="btnLogin_Click"/>
             </div>
             <div>
                 <asp:Label ID="lblMsg" runat="server" ForeColor="Red"></asp:Label>

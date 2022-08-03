@@ -62,4 +62,8 @@ public partial class signup : System.Web.UI.Page
     {
         chk_user();
     }
+    protected void btnLogin_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("login.aspx")
+    }
 }
