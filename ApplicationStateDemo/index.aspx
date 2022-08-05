@@ -12,7 +12,7 @@
             <h1>Refresh Page For Result</h1>
             <br /><br />
             <div style="border:1px solid black;padding:16px;">
-                <asp:Label ID="lblCount" runat="server" Text="Count : "></asp:Label>
+                <asp:Label ID="lblCount" runat="server" Text="Online Users : "></asp:Label>
                 <asp:Label ID="lblResult" runat="server"></asp:Label>
             </div>
         </form>
