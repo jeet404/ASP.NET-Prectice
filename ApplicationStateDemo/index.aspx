@@ -15,6 +15,10 @@
                 <asp:Label ID="lblCount" runat="server" Text="Online Users : "></asp:Label>
                 <asp:Label ID="lblResult" runat="server"></asp:Label>
             </div>
+            <br />
+            <div>
+                <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogout_Click" />
+            </div>
         </form>
     </div>
 </body>
