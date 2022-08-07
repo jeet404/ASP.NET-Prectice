@@ -15,16 +15,23 @@ public partial class index : System.Web.UI.Page
     DataSet ds;
     protected void Page_Load(object sender, EventArgs e)
     {
-        string strCon = ConfigurationManager.ConnectionStrings["sqlCon"].ConnectionString;
-        try
+        if (Session["apid"] != null)
         {
-            conn = new SqlConnection(strCon);
-            conn.Open();
-            getData();
+            string strCon = ConfigurationManager.ConnectionStrings["sqlCon"].ConnectionString;
+            try
+            {
+                conn = new SqlConnection(strCon);
+                conn.Open();
+                getData();
+            }
+            catch (SqlException se)
+            {
+                Response.Write(se);
+            }
         }
-        catch (SqlException se)
+        else
         {
-            Response.Write(se);
+            Response.Redirect("ViewAp.aspx");
         }
     }
 
