@@ -20,8 +20,11 @@ public partial class ViewAp : System.Web.UI.Page
         {
             conn = new SqlConnection(strCon);
             conn.Open();
-            txtDob.Enabled = false;
-            btnView.Enabled = false;
+            if (!IsPostBack)
+            {
+                txtDob.Enabled = false;
+                btnView.Enabled = false;
+            }
         }
         catch (SqlException se)
         {
