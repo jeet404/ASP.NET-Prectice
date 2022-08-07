@@ -30,6 +30,7 @@
             </div>
             <div>
                 <asp:Button ID="btnView" runat="server" Text="View" OnClick="btnView_Click" />
+                <asp:Button ID="btnRegi" runat="server" Text="Take New Appointment" OnClick="btnRegi_Click" />
             </div>
             <div>
                 <asp:Label ID="lblErr" runat="server" ForeColor="Red"></asp:Label>

@@ -75,4 +75,8 @@ public partial class ViewAp : System.Web.UI.Page
             lblMsg.Text = "";
         }
     }
+    protected void btnRegi_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("regiForm.aspx");
+    }
 }
