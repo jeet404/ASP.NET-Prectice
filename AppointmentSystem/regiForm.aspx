@@ -40,9 +40,9 @@
                     <asp:TextBox ID="txtDob" runat="server" TextMode="Date"></asp:TextBox>
                 </div>
                 <div>
-                    <asp:Label ID="lbl8" runat="server" Text="Choose Person : "></asp:Label>
+                    <asp:Label ID="lbl8" runat="server" Text="Choose Category : "></asp:Label>
                     <asp:DropDownList ID="ddlChoice" runat="server" AutoPostBack="true" AppendDataBoundItems="true">
-                        <asp:ListItem Text="--Select Person--" Value="0"></asp:ListItem>
+                        <asp:ListItem Text="--Select Category--" Value="0"></asp:ListItem>
                     </asp:DropDownList>
                 </div>
                 <div>
