@@ -46,8 +46,8 @@
                     </asp:DropDownList>
                 </div>
                 <div>
-                    <asp:Label ID="lbl9" runat="server" Text="Choose Date : "></asp:Label>
-                    <asp:TextBox ID="txtSlot" runat="server" TextMode="Date"></asp:TextBox>
+                    <asp:Label ID="lbl9" runat="server" Text="Choose Date & Time : "></asp:Label>
+                    <asp:TextBox ID="txtSlot" runat="server" TextMode="DateTimeLocal"></asp:TextBox>
                 </div>
                 <div>
                     <asp:Button ID="btnRegi" runat="server" Text="Done" OnClick="btnRegi_Click" />
