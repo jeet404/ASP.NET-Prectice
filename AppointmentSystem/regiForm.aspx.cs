@@ -15,6 +15,7 @@ public partial class regiForm : System.Web.UI.Page
     SqlDataAdapter da;
     DataSet ds;
     string gen;
+    string datetime;
     int apId;
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -94,7 +95,12 @@ public partial class regiForm : System.Web.UI.Page
         cmd.Parameters.AddWithValue("@gender",gen);
         cmd.Parameters.AddWithValue("@dob",txtDob.Text);
         cmd.Parameters.AddWithValue("@expert",ddlChoice.SelectedValue);
-        cmd.Parameters.AddWithValue("@slot",txtSlot.Text);
+        datetime = txtSlot.Text;
+        DateTime dt = DateTime.Parse(datetime);
+        string dtval = dt.ToShortDateString();
+        DateTime tm = DateTime.Parse(datetime);
+        string tmval = tm.ToShortTimeString();
+        cmd.Parameters.AddWithValue("@slot",dtval+" "+tmval);
         int res = cmd.ExecuteNonQuery();
         if(res > 0){
             lblMsg.ForeColor = System.Drawing.Color.Green;
