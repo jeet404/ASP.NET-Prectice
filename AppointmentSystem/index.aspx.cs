@@ -50,7 +50,8 @@ public partial class index : System.Web.UI.Page
         lblDob.Text += dob.ToShortDateString();
         lblApType.Text += ds.Tables[0].Rows[0][6].ToString();
         DateTime slot = DateTime.Parse(ds.Tables[0].Rows[0][7].ToString());
-        lblSlot.Text += slot.ToShortDateString();
+        lblSlotDt.Text += slot.ToShortDateString();
+        lblSlotTm.Text += slot.ToShortTimeString().ToString().TrimEnd('0').TrimEnd(':');
     }
     protected void btnExit_Click(object sender, EventArgs e)
     {
