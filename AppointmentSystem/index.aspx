@@ -62,7 +62,10 @@
                     <asp:Label ID="lblApType" runat="server" Text="Expert Name : "></asp:Label>
                 </div>
                 <div>
-                    <asp:Label ID="lblSlot" runat="server" Text="Your Appointment Date : "></asp:Label>
+                    <asp:Label ID="lblSlotDt" runat="server" Text="Your Appointment Date : "></asp:Label>
+                </div>
+                <div>
+                    <asp:Label ID="lblSlotTm" runat="server" Text="Your Appointment Time : "></asp:Label>
                 </div>
             </div>
             <br />
