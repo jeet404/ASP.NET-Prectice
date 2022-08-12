@@ -19,8 +19,7 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
-            
+        <asp:ContentPlaceHolder id="body" runat="server">
             <table align="center" class="auto-style1">
                 <tr>
                     <td style="font-family: cursive; background-color: #00FFFF">
@@ -30,7 +29,7 @@
                 </tr>
                 <tr>
                     <td style="border-style: solid; border-width: thin">
-                        <asp:ContentPlaceHolder ID="body" runat="server">
+                        <asp:ContentPlaceHolder ID="nav" runat="server">
                             </asp:ContentPlaceHolder>
                     </td>
                 </tr>
