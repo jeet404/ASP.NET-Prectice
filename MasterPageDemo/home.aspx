@@ -1,13 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="home.aspx.cs" Inherits="home" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/nav.master" AutoEventWireup="true" CodeFile="home.aspx.cs" Inherits="home" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="innerbody" Runat="Server">
     <style type="text/css">
         .auto-style3 {
             height: 26px;
         }
     </style>
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="body" Runat="Server">
+
     <table align="center" class="auto-style1">
         <tr>
             <td class="auto-style3">
