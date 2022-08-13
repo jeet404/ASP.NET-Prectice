@@ -5,9 +5,12 @@
     .auto-style1{
         height:auto;
     }
+    .auto-style3{
+        padding:20px;
+    }
     .auto-style4 {
         width: 150px;
-        height:100%;
+        height:100vh;
     }
     </style>
 </asp:Content>
@@ -15,14 +18,14 @@
 
     <table align="center" class="auto-style1">
         <tr>
-            <td class="auto-style3">
+            <td>
 
-                <table align="center" class="auto-style4" style="background-color: #00FFFF; font-family: cursive; border-style: solid; border-width: 0px thin 0px 0px">
+                <table class="auto-style4" style="background-color: #00FFFF; font-family: cursive; border-style: solid; border-width: 0px thin 0px 0px">
                     <tr>
                         <td><a href="home.aspx">Home</a></td>
                     </tr>
                     <tr>
-                        <td><a href="project.aspx">Projects</a></td>
+                        <td><a href="projects.aspx">Projects</a></td>
                     </tr>
                     <tr>
                         <td><a href="about.aspx">About Us</a></td>
@@ -36,7 +39,7 @@
                 </table>
 
             </td>
-            <td>
+            <td class="auto-style3">
                 <asp:ContentPlaceHolder ID="innerbody" runat="server"></asp:ContentPlaceHolder>
             </td>
         </tr>
