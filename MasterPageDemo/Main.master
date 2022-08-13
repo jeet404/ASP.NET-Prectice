@@ -8,8 +8,16 @@
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
     <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+        body{
+            width:100%;
+        }
         .auto-style1 {
-            width: 1000px;
+            width: 100%;
         }
         .auto-style2 {
             height: 80px;
