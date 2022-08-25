@@ -13,7 +13,18 @@
     <form id="form1" runat="server">
         <div class="sidebar">
             <div class="ad_name">
-                <asp:Label ID="lblName" runat="server"></asp:Label>
+                Welcome
+                <br />
+                <asp:Label ID="lblName" runat="server">Jeet Patel</asp:Label>
+                <hr />
+                <h4>Admin Panel</h4>
+                <hr />
+            </div>
+            <div class="menus">
+                <a href="index.aspx">Dashboard</a>
+                <a href="category.aspx">Category</a>
+                <a href="brands.aspx">Brand</a>
+                <a href="products.aspx">Product</a>
             </div>
         </div>
         <div class="main-cont">

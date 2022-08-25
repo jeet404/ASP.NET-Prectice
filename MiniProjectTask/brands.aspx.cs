@@ -16,8 +16,8 @@ public partial class brands : System.Web.UI.Page
     DataSet ds;
     protected void Page_Load(object sender, EventArgs e)
     {
-        //if (Session["email"] != null)
-        //{
+        if (Session["email"] != null)
+        {
         try
         {
             string strCon = ConfigurationManager.ConnectionStrings["sqlCon"].ConnectionString;
@@ -32,11 +32,11 @@ public partial class brands : System.Web.UI.Page
         {
             Response.Write(se);
         }
-        //}
-        //else
-        //{
-        //    Response.Redirect("login.aspx");
-        //}
+        }
+        else
+        {
+            Response.Redirect("login.aspx");
+        }
     }
     protected void btnAdd_Click(object sender, EventArgs e)
     {
@@ -85,8 +85,8 @@ public partial class brands : System.Web.UI.Page
     }
     protected void gvBrands_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
-        int cid = Convert.ToInt32(gvBrands.DataKeys[e.RowIndex].Values[0]);
-        string strDel = "DELETE FROM brands WHERE b_id = " + cid;
+        int bid = Convert.ToInt32(gvBrands.DataKeys[e.RowIndex].Values[0]);
+        string strDel = "DELETE FROM brands WHERE b_id = " + bid;
         cmd = new SqlCommand(strDel, conn);
         int res = cmd.ExecuteNonQuery();
         if (res > 0)
@@ -101,8 +101,8 @@ public partial class brands : System.Web.UI.Page
     }
     protected void gvBrands_RowUpdating(object sender, GridViewUpdateEventArgs e)
     {
-        int cid = Convert.ToInt32(gvBrands.DataKeys[e.RowIndex].Values[0]);
-        string strEdit = "UPDATE brands SET b_name=@name WHERE b_id = " + cid;
+        int bid = Convert.ToInt32(gvBrands.DataKeys[e.RowIndex].Values[0]);
+        string strEdit = "UPDATE brands SET b_name=@name WHERE b_id = " + bid;
         GridViewRow gvr = (GridViewRow)gvBrands.Rows[e.RowIndex];
         TextBox bname = (TextBox)gvr.Cells[0].Controls[0];
         cmd = new SqlCommand(strEdit, conn);

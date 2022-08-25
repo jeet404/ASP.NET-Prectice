@@ -15,8 +15,8 @@ public partial class index : System.Web.UI.Page
     DataSet ds;
     protected void Page_Load(object sender, EventArgs e)
     {
-        //if (Session["email"] != null)
-        //{
+        if (Session["email"] != null)
+        {
             try
             {
                 string strCon = ConfigurationManager.ConnectionStrings["sqlCon"].ConnectionString;
@@ -27,10 +27,10 @@ public partial class index : System.Web.UI.Page
             {
                 Response.Write(se);
             }
-        //}
-        //else
-        //{
-        //    Response.Redirect("login.aspx");
-        //}
+        }
+        else
+        {
+            Response.Redirect("login.aspx");
+        }
     }
 }
