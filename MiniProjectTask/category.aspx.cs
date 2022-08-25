@@ -49,7 +49,7 @@ public partial class category : System.Web.UI.Page
         {
             string strIn = "INSERT INTO categories VALUES (@name)";
             cmd = new SqlCommand(strIn, conn);
-            cmd.Parameters.Add("@name", txtCateName.Text);
+            cmd.Parameters.AddWithValue("@name", txtCateName.Text);
             int res = cmd.ExecuteNonQuery();
             if (res > 0)
             {
@@ -96,7 +96,7 @@ public partial class category : System.Web.UI.Page
         GridViewRow gvr = (GridViewRow)gvCategory.Rows[e.RowIndex];
         TextBox cname = (TextBox)gvr.Cells[0].Controls[0];
         cmd = new SqlCommand(strEdit, conn);
-        cmd.Parameters.Add("@name", cname.Text);
+        cmd.Parameters.AddWithValue("@name", cname.Text);
         int res = cmd.ExecuteNonQuery();
         if (res > 0)
         {
