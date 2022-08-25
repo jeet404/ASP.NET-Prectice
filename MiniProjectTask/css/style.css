@@ -1,0 +1,116 @@
+﻿*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body {
+    width:100%;
+    background-color:coral;
+}
+
+.sidebar{
+    position:absolute;
+    float:left;
+    width:20%;
+    height:100vh;
+    background-color:skyblue;
+    padding:16px;
+}
+
+.ad_name{
+    margin-top: 10px;
+    font-family:cursive;
+    font-size:1.2em;
+}
+
+.main-cont{
+    position:relative;
+    float:right;
+    width:80%;
+    height:100vh;
+    padding:20px;
+}
+
+.container{
+    padding:40px;
+}
+
+.row{
+    display:flex;
+    justify-content:center;
+    flex-direction:row;
+    align-items:center;
+    margin-top:25px;
+}
+
+.card{
+    width:200px;
+    height:150px;
+    background-color:cyan;
+    border-radius:16px;
+    box-shadow:0px 0px 8px 4px black;
+    padding:14px;
+    margin: 0px 8px;
+}
+
+.card-title{
+    text-align:center;
+    font-size:1.4em;
+    font-family:cursive;
+    margin-bottom:30px;
+    padding-bottom:16px;
+    border-bottom:1px solid gray;
+}
+
+.card-body{
+    display:flex;
+    justify-content:flex-end;
+    font-size:1.3em;
+    font-family:cursive;
+}
+
+.card-link{
+    text-decoration:none;
+    color:black;
+}
+
+.card-link:hover{
+    color:blue;
+}
+
+.form-style{
+    width:300px;
+    height:auto;
+    margin-top:30px;
+    padding:20px;
+    background-color:cyan;
+    border-radius:20px;
+}
+
+.form-control{
+    margin-bottom:16px;
+    display:flex;
+    justify-content:center;
+}
+
+.form-control input[type=text]{
+    width:100%;
+    font-size:1.4em;
+    font-family:cursive;
+    border-radius:5px;
+}
+
+.form-control input[type=submit]{
+    padding:14px;
+    font-family:cursive;
+    font-size:1.4em;
+    background-color:lightgreen;
+    border:0px;
+    border-radius:6px;
+    box-shadow:0px 0px 6px 1px black;
+}
+
+.form-control input[type=submit]:hover{
+    background-color:skyblue;
+}
