@@ -11,4 +11,11 @@ public partial class MasterPage : System.Web.UI.MasterPage
     {
 
     }
+    protected void btnLogout_Click(object sender, EventArgs e)
+    {
+        Session.Abandon();
+        Session.Clear();
+        Session.RemoveAll();
+        Server.Transfer("login.aspx");
+    }
 }

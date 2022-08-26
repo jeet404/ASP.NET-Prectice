@@ -26,6 +26,9 @@
                 <a href="brands.aspx">Brand</a>
                 <a href="products.aspx">Product</a>
             </div>
+            <div class="out">
+                <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogout_Click" />
+            </div>
         </div>
         <div class="main-cont">
             <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
