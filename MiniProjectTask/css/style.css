@@ -6,15 +6,15 @@
 
 body {
     width:100%;
-    background-color:coral;
+    background-color:whitesmoke;
 }
 
 .sidebar{
     position:absolute;
     float:left;
     width:20%;
-    height:100vh;
-    background-color:skyblue;
+    height:110vh;
+    background-color:black;
     padding:16px;
 }
 
@@ -25,6 +25,7 @@ body {
     display:flex;
     flex-direction:column;
     text-align:center;
+    color:cyan;
 }
 
 .menus{
@@ -132,11 +133,11 @@ body {
 }
 
 .form-control input[type=submit]{
-    padding:10px;
+    padding:4px;
     width:20%;
     font-family:cursive;
     font-size:1.2em;
-    background-color:lightgreen;
+    background-color:white;
     border:0px;
     border-radius:6px;
     box-shadow:0px 0px 6px 1px black;
@@ -161,4 +162,23 @@ body {
     margin-bottom:16px;
     display:flex;
     flex-direction:column;
+}
+
+.out{
+    display:flex;
+    justify-content:center;
+    width:100%; 
+}
+
+.out input[type=submit]{
+    padding:6px;
+    font-family:cursive;
+    font-size:1em;
+    border-radius:20px;
+    background-color:crimson;
+    color:white;
+}
+
+.out input[type=submit]:hover{
+    transform:scale(1.1);
 }
