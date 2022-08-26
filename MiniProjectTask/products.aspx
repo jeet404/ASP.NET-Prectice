@@ -14,13 +14,13 @@
                 </div>
                 <div class="form-control">
                     <asp:Label ID="lblCat" runat="server" Text="Category : "></asp:Label>
-                    <asp:DropDownList ID="ddlCat" runat="server" AppendDataBoundItems="true">
+                    <asp:DropDownList ID="ddlCat" runat="server" AppendDataBoundItems="true" AutoPostBack="true" OnSelectedIndexChanged="ddlCat_SelectedIndexChanged">
                         <asp:ListItem Text="--Select Category--" Value="0"></asp:ListItem>
                     </asp:DropDownList>
                 </div>
                 <div class="form-control">
                     <asp:Label ID="Label1" runat="server" Text="Brand : "></asp:Label>
-                    <asp:DropDownList ID="ddlBrand" runat="server" AppendDataBoundItems="true">
+                    <asp:DropDownList ID="ddlBrand" runat="server">
                         <asp:ListItem Text="--Select Brand--" Value="0"></asp:ListItem>
                     </asp:DropDownList>
                 </div>

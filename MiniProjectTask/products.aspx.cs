@@ -27,7 +27,6 @@ public partial class products : System.Web.UI.Page
             {
                 bindProduct();
                 bindCategory();
-                bindBrand();
             }
         }
         catch (SqlException se)
@@ -93,7 +92,7 @@ public partial class products : System.Web.UI.Page
 
     public void bindBrand()
     {
-        string strGet = "SELECT * FROM brands";
+        string strGet = "SELECT * FROM brands WHERE c_name = '" + ddlCat.SelectedValue + "'";
         da = new SqlDataAdapter(strGet, conn);
         ds = new DataSet();
         da.Fill(ds);
@@ -156,6 +155,20 @@ public partial class products : System.Web.UI.Page
         if (res > 0)
         {
             bindProduct();
+        }
+    }
+    protected void ddlCat_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        if (ddlCat.SelectedValue == "0")
+        {
+            ddlBrand.Items.Clear();
+            ListItem lst = new ListItem("--Select Brand--", "0");
+            ddlBrand.Items.Add(lst);
+            ddlBrand.SelectedValue = "0";
+        }
+        else
+        {
+            bindBrand();
         }
     }
 }
