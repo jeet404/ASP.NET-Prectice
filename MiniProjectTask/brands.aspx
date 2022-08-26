@@ -13,6 +13,12 @@
                     <asp:TextBox ID="txtBrandName" runat="server"></asp:TextBox>
                 </div>
                 <div class="form-control">
+                    <asp:Label ID="Label1" runat="server" Text="Category Name : "></asp:Label>
+                    <asp:DropDownList ID="ddlCate" runat="server" AppendDataBoundItems="true">
+                        <asp:ListItem Text="--Select Category--" Value="0"></asp:ListItem>
+                    </asp:DropDownList>
+                </div>
+                <div class="form-control">
                     <asp:Button ID="btnAdd" runat="server" Text="Add" OnClick="btnAdd_Click" />
                 </div>
                 <div class="form-control">
@@ -24,6 +30,7 @@
             <asp:GridView ID="gvBrands" runat="server" PageSize="5" DataKeyNames="b_id" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="false" Width="300px" CellPadding="4" ForeColor="#333333" GridLines="None" OnPageIndexChanging="gvBrands_PageIndexChanging" OnRowCancelingEdit="gvBrands_RowCancelingEdit" OnRowDeleting="gvBrands_RowDeleting" OnRowEditing="gvBrands_RowEditing" OnRowUpdating="gvBrands_RowUpdating">
                 <Columns>
                     <asp:BoundField HeaderText="Brand Name" DataField="b_name" />
+                    <asp:BoundField HeaderText="Category Name" DataField="c_name" />
                     <asp:CommandField ShowEditButton="True" />
                     <asp:CommandField ShowDeleteButton="True" />
                 </Columns>

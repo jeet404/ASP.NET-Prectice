@@ -26,6 +26,7 @@ public partial class brands : System.Web.UI.Page
             if (!IsPostBack)
             {
                 bindBrand();
+                bindCate();
             }
         }
         catch (SqlException se)
@@ -47,15 +48,17 @@ public partial class brands : System.Web.UI.Page
         string cname = ds.Tables[0].Rows[0][1].ToString();
         if (cname != txtBrandName.Text)
         {
-            string strIn = "INSERT INTO brands VALUES (@name)";
+            string strIn = "INSERT INTO brands VALUES (@name,@cname)";
             cmd = new SqlCommand(strIn, conn);
             cmd.Parameters.AddWithValue("@name", txtBrandName.Text);
+            cmd.Parameters.AddWithValue("@cname", ddlCate.SelectedValue);
             int res = cmd.ExecuteNonQuery();
             if (res > 0)
             {
                 bindBrand();
             }
             txtBrandName.Text = "";
+            ddlCate.SelectedValue = "0";
         }
         else
         {
@@ -72,6 +75,19 @@ public partial class brands : System.Web.UI.Page
         gvBrands.DataSource = ds;
         gvBrands.DataBind();
         lblErr.Text = "";
+    }
+
+    public void bindCate()
+    {
+        string strGet = "SELECT * FROM categories";
+        da = new SqlDataAdapter(strGet, conn);
+        ds = new DataSet();
+        da.Fill(ds);
+        ddlCate.DataSource = ds;
+        ddlCate.DataTextField = "c_name";
+        ddlCate.DataValueField = "c_name";
+        ddlCate.DataBind();
+        ddlCate.SelectedValue = "0";
     }
     protected void gvBrands_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
