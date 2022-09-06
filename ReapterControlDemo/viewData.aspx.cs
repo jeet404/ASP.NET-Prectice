@@ -23,7 +23,6 @@ public partial class viewData : System.Web.UI.Page
             da = new SqlDataAdapter("SELECT * FROM userInfo ", conn);
             ds = new DataSet();
             da.Fill(ds);
-            da.Dispose();
             rprData.DataSource = ds;
             rprData.DataBind();
         }
