@@ -38,37 +38,54 @@
 <body>
     <div class="main-cont">
         <form id="form1" runat="server">
-            <h1>Welcome <asp:Label ID="lblUserDisp" runat="server"></asp:Label></h1>
-            <div class="inner-cont" id="printarea">
-                <div>
-                    <asp:Label ID="lblApNo" runat="server" Text="Appointment Id : "></asp:Label>
-                </div>
-                <div>
-                    <asp:Label ID="lblName" runat="server" Text="Name : "></asp:Label>
-                </div>
-                <div>
-                    <asp:Label ID="lblMobile" runat="server" Text="Email : "></asp:Label>
-                </div>
-                <div>
-                    <asp:Label ID="lblEmail" runat="server" Text="Mobile No : "></asp:Label>
-                </div>
-                <div>
-                    <asp:Label ID="lblGen" runat="server" Text="Gender : "></asp:Label>
-                </div>
-                <div>
-                    <asp:Label ID="lblDob" runat="server" Text="Date of Birth : "></asp:Label>
-                </div>
-                <div>
-                    <asp:Label ID="lblApType" runat="server" Text="Expert Name : "></asp:Label>
-                </div>
-                <div>
-                    <asp:Label ID="lblSlotDt" runat="server" Text="Your Appointment Date : "></asp:Label>
-                </div>
-                <div>
-                    <asp:Label ID="lblSlotTm" runat="server" Text="Your Appointment Time : "></asp:Label>
-                </div>
-            </div>
-            <br />
+            <asp:Repeater ID="rprData" runat="server">
+                <HeaderTemplate>
+                    <h1>Welcome <asp:Label ID="lblUserDisp" runat="server"></asp:Label></h1>
+                </HeaderTemplate>
+                <ItemTemplate>
+                    <div class="inner-cont" id="printarea">
+                        <div>
+                            Appointment Id :
+                            <asp:Label ID="lblApNo" runat="server" Text='<%# Eval("ap_id")%>'></asp:Label>
+                        </div>
+                        <div>
+                            Name :
+                            <asp:Label ID="lblName" runat="server" Text='<%# Eval("ap_name") %>'></asp:Label>
+                        </div>
+                        <div>
+                            Email : 
+                            <asp:Label ID="lblMobile" runat="server" Text='<%# Eval("ap_email") %>'></asp:Label>
+                        </div> 
+                        <div>
+                            Mobile No :
+                            <asp:Label ID="lblEmail" runat="server" Text='<%# Eval("ap_mobile") %>'></asp:Label>
+                        </div>
+                        <div>
+                            Gender :
+                            <asp:Label ID="lblGen" runat="server" Text='<%# Eval("ap_gender") %>'></asp:Label>
+                        </div>
+                        <div>
+                            Date of Birth : 
+                            <asp:Label ID="lblDob" runat="server" Text='<%# DateTime.Parse(Eval("ap_dob").ToString()).ToShortDateString() %>'></asp:Label>
+                        </div>
+                        <div>
+                            Expert Name : 
+                            <asp:Label ID="lblApType" runat="server" Text='<%# Eval("ap_expert") %>'></asp:Label>
+                        </div>
+                        <div>
+                            Your Appointment Date : 
+                            <asp:Label ID="lblSlotDt" runat="server" Text='<%# DateTime.Parse(Eval("ap_slot").ToString()).ToShortDateString() %>'></asp:Label>
+                        </div>
+                        <div>
+                            Your Appointment Time :
+                            <asp:Label ID="lblSlotTm" runat="server" Text='<%# DateTime.Parse(Eval("ap_slot").ToString()).ToShortTimeString() %>'></asp:Label>
+                        </div>
+                    </div>
+                    <br />
+                </ItemTemplate>
+                <FooterTemplate>
+                </FooterTemplate>
+            </asp:Repeater>
             <div>
                 <input type="button" onclick="PrintDiv()" value="Print" id="btnprint" />
                 <asp:Button ID="btnExit" runat="server" Text="Exit" OnClick="btnExit_Click" />

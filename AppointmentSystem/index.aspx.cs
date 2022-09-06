@@ -22,7 +22,12 @@ public partial class index : System.Web.UI.Page
             {
                 conn = new SqlConnection(strCon);
                 conn.Open();
-                getData();
+                string strGet = "SELECT * FROM appointment WHERE ap_id = " + Session["apid"];
+                da = new SqlDataAdapter(strGet, conn);
+                ds = new DataSet();
+                da.Fill(ds);
+                rprData.DataSource = ds;
+                rprData.DataBind();
             }
             catch (SqlException se)
             {
@@ -33,25 +38,6 @@ public partial class index : System.Web.UI.Page
         {
             Response.Redirect("ViewAp.aspx");
         }
-    }
-
-    public void getData()
-    {
-        string strGet = "SELECT * FROM appointment WHERE ap_id = " + Session["apid"];
-        da = new SqlDataAdapter(strGet, conn);
-        ds = new DataSet();
-        da.Fill(ds);
-        lblApNo.Text +=  ds.Tables[0].Rows[0][0].ToString();
-        lblName.Text += ds.Tables[0].Rows[0][1].ToString();
-        lblEmail.Text += ds.Tables[0].Rows[0][2].ToString();
-        lblMobile.Text += ds.Tables[0].Rows[0][3].ToString();
-        lblGen.Text += ds.Tables[0].Rows[0][4].ToString();
-        DateTime dob = DateTime.Parse(ds.Tables[0].Rows[0][5].ToString());
-        lblDob.Text += dob.ToShortDateString();
-        lblApType.Text += ds.Tables[0].Rows[0][6].ToString();
-        DateTime slot = DateTime.Parse(ds.Tables[0].Rows[0][7].ToString());
-        lblSlotDt.Text += slot.ToShortDateString();
-        lblSlotTm.Text += slot.ToShortTimeString().ToString().TrimEnd('0').TrimEnd(':');
     }
     protected void btnExit_Click(object sender, EventArgs e)
     {
